@@ -1,0 +1,35 @@
+.about-me {
+    background-color: #605196;
+    padding-top:15px;
+  }
+  
+  .about-me .icon {
+    text-align: center;
+  }
+  
+  .about-me .icon img {
+    width: 120px;
+    border-radius: 50%;
+  }
+
+  .about-me .card {
+      padding:5px;
+      border-radius:0px;
+  }
+
+  .about-me h4{
+  font-weight: 800;
+  }
+
+  .about-me h5,h4{
+    color:#fff
+  }
+  .cocon h5,h4{
+    margin-top:15px
+  }
+  .about-me h5,h4,
+  h6 {
+    margin-top: 5px;
+    text-align: center;
+  }
+  

@@ -1,0 +1,30 @@
+.color-bar{
+    width:5px;
+    background-color:#605196;
+    height:100%;
+    float: right;
+    position: relative;
+    left:.9em
+}
+.colored h5{
+    color:#605196;
+    position: relative;
+    top:4px
+}
+
+.non-colored h5{
+    position: relative;
+    top:4px
+}
+.bar{
+    width:5px;
+    background-color:#fff;
+    height:100%;
+    float: right;
+    position: relative;
+    left:.9em
+}
+.nav{
+    cursor: pointer;
+    margin-top:5px;
+}

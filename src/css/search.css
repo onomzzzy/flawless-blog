@@ -1,39 +1,34 @@
-.search {
-  margin-top: 1em;
+.search-bar{
+    margin-top:.8em;
 }
 
-.search i {
-  float: right;
-  font-size: 30px !important;
-  cursor: pointer;
+.search-bar .colored-line{
+    background-color: #605196;
+    width:5px;
+    margin-left:2px;
+}
+.search-bar .p-button{
+  background-color:#fff!important;
+  outline:none!important;
+  border-color:#bbb;
+  height:35px!important;
+  border-left:0;
+  color:#212121;
+  box-shadow: none!important;
+}
+.search-bar .p-button:hover,
+.search-bar .p-button:focus,
+.search-bar .p-button:active{
+    outline:none!important;
+    color:#212121!important;
+    border-color:#bbb!important;
+    box-shadow: none!important;
 }
 
-.search .animate_component {
-  opacity: 0;
-  animation-name: animateComponent;
-  animation-duration: 3s;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
-}
-
-/* The animation code */
-@keyframes animateComponent {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 0.4;
-  }
-  75% {
-    opacity: 0.6;
-  }
-  85% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 1;
-  }
+.search-bar input:hover,
+.search-bar input:focus,
+.search-bar input:active{
+    outline:none!important;
+    border-color:#bbb!important;
+    box-shadow: none!important;
 }

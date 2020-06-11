@@ -3,8 +3,8 @@
 }
 
 .rpost img {
-  width: 180px;
-  height: 100px;
+  max-width: 150px;
+  max-height: 100px;
 }
 
 .rpost h6 {

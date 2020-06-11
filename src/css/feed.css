@@ -1,0 +1,9 @@
+.remove:focus,
+.remove:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.space{
+    margin-top:2px!important;
+}

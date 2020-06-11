@@ -1,0 +1,21 @@
+.small-header{
+    padding-left:5px;
+    margin-top:5px;
+}
+.small-header h5{
+    font-weight: 600;
+}
+.colored-text{
+    color:#605196
+}
+.header-icon{
+text-align: center;
+margin-top:3px;
+cursor: pointer;
+}
+
+.header-icon-only{
+    text-align: center;
+    margin-top:10px;
+    cursor: pointer;
+    }

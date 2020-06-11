@@ -23,6 +23,13 @@ button {
   transition: background-color 3s ease-in, opacity 2s ease-out;
 }
 
+a{
+  text-decoration: none!important;
+  color: #212121!important;
+}
+a:hover{
+  text-decoration: none!important;
+}
 ::-webkit-input-placeholder {
   /* Edge */
   position: relative;
@@ -47,14 +54,46 @@ button {
   overflow-x: hidden;
 }
 
+.logo{
+  float: right;
+  margin-top:3px;
+}
+
 .footer_margin {
   margin-top: 20px;
 }
 
+@keyframes ui-progress-spinner-color {
+  100%,
+  0% {
+      stroke: #605196;
+  }
+  40% {
+      stroke: #0057e7;
+  }
+  66% {
+      stroke: #0b429b;
+  }
+  80%,
+  90% {
+      stroke: #605196;
+  }
+}
+
 .btn {
-  background-color: #605196 !important;
+  background-color:  !important;
   font-family: "Cagliostro", sans-serif;
   color: #fff !important;
+}
+
+.hamburger {
+  background-color: transparent;
+}
+
+.hamburger:focus,
+.hamburger:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .btn:focus,
@@ -73,6 +112,123 @@ input,
 textarea,
 button {
   width: 100%;
+}
+
+
+.header{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: #fff;
+  height:60px; 
+  top: 0; /* Stay at the top */
+  left: 0;
+  right:0;
+  position: fixed; /* Stay in place */
+  z-index: 5; /* Stay on top */
+}
+.header .header-controller{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sideNavMenu {
+  width: 300px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 65px; /* Stay at the top */
+  height: calc(100% - 65px);
+  left: 0;
+  background-color: #fff; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-y: hidden;
+  padding: 0; /* Place content 60px from the top */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+.sideNavMenu:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  overflow-y: auto;
+}
+
+.p-sidebar-left{
+  top: 65px!important; /* Stay at the top */
+ height: calc(100% - 65px)!important;
+ overflow-y: hidden;
+  padding:0px!important;
+}
+
+.p-sidebar-left:hover{
+  overflow-y: auto;
+}
+
+
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.activity-list {
+  width: 300px; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 65px; /* Stay at the top */
+  height: calc(100% - 65px);
+  right: 0;
+  background-color: #fff; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-y: hidden;
+  padding-top: 0px; /* Place content 60px from the top */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.activity-list:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  overflow-y: auto;
+}
+ul{
+  padding: 0;
+}
+
+#main {
+  transition: margin-left .5s;
+  transition: margin-right .5s;
+  margin-top: 65px;
+  margin-left:300px;
+  margin-right: 300px;
+  z-index: 0;
+  padding: 20px;
+}
+
+#mainSm {
+  transition: margin-right .5s;
+  margin-top: 65px;
+  margin-left:300px;
+  margin-right:0px;
+  z-index: 0;
+  padding: 20px;
+}
+
+#mainM {
+  transition: margin-left .5s;
+  margin-top: 65px;
+  margin-left:0px;
+  margin-right:0px;
+  z-index: 0;
+  padding: 20px;
+}
+
+
+.right-icon{
+  float:left
 }
 
 .btn .left_icon {

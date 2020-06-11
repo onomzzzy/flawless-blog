@@ -7,6 +7,14 @@
   border-radius: 50%;
 }
 
+.comment h6{
+  text-align: left;
+}
+
+.reply h6{
+  text-align: left;
+}
+
 .comment h4 {
   color: #212121;
 }

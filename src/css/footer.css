@@ -1,0 +1,14 @@
+.com-footer{
+    margin-top: 15px;
+    padding-top:10px;
+    background-color: #605196;
+    color: #fff;
+}
+.com-footer hr{
+    background-color: #fff!important;
+}
+
+.com-footer .push-p p{
+    position: relative;
+    top:3px
+}
