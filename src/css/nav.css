@@ -6,13 +6,15 @@
     position: relative;
     left:.9em
 }
-.colored h5{
+.colored h6{
+    text-align: left;
     color:#605196;
     position: relative;
     top:4px
 }
 
-.non-colored h5{
+.non-colored h6{
+    text-align: left;
     position: relative;
     top:4px
 }

@@ -1,15 +1,20 @@
 .about-me {
     background-color: #605196;
-    padding-top:15px;
+    padding-top:0px;
   }
   
   .about-me .icon {
     text-align: center;
+    margin-top:-2em;
   }
   
   .about-me .icon img {
-    width: 120px;
-    border-radius: 50%;
+    width: 240px;
+    margin-top: 0;
+  }
+
+  .about-me .motto{
+    margin-top: -3em;
   }
 
   .about-me .card {
@@ -21,13 +26,14 @@
   font-weight: 800;
   }
 
-  .about-me h5,h4{
+  
+  .about-me h6,h4{
     color:#fff
   }
-  .cocon h5,h4{
+  .cocon h6,h4{
     margin-top:15px
   }
-  .about-me h5,h4,
+  .about-me h6,h4,
   h6 {
     margin-top: 5px;
     text-align: center;

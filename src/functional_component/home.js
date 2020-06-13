@@ -8,7 +8,10 @@ import { Link } from "react-router-dom";
 //import Slide from '@material-ui/core/Slide';
 import {BlogContext} from "../App";
 import EmptyBlogs from "./empty";
+import RecentPost from "../functional_component/rpost";
 import Footer from "../functional_component/footer";
+import PopularPost from "./ppost";
+import ColoredHeader from "./coloredHeader";
 
 
 
@@ -144,7 +147,7 @@ const Home = ({match}) => {
 
 );
     return ( 
-    <div>
+    <div className="home">
       {blogs.length === 0 && !isEmpty ?
      <div className={classes.spinner}>
      <ProgressSpinner style={{width: '60px', height: '60px'}} 
@@ -156,7 +159,25 @@ const Home = ({match}) => {
          <EmptyBlogs page={page} value={match.params.id}/>
          :
           <div>
-          
+            <div>
+            {blogContext.blogState.screen > 1030 ?
+            <div/>
+            :
+            <div>
+            <div>
+              <ColoredHeader title="POPULAR POSTS" />
+            </div>
+           <PopularPost />
+           <div>
+           <ColoredHeader title="RECENT POSTS" />
+            </div>
+           <RecentPost page={true}/>
+           </div>
+
+           }
+            </div>
+
+           <ColoredHeader title="GREAT ARTICLES" />
            {allBlogs} 
           
          </div>

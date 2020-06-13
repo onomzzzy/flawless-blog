@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../css/footer.css"
+import { Link } from "react-router-dom";
 import Facebook from '@material-ui/icons/Facebook';
 import Instagram from '@material-ui/icons/Instagram';
 import Twitter from '@material-ui/icons/Twitter';
 import Youtube from '@material-ui/icons/YouTube';
+import { BlogContext } from "../App";
 const Footer = () => {
+    const blogContext = useContext(BlogContext);
+
+    function handleCategory(category){
+        blogContext.blogDispatch({type:'SELECT_CATEGORY',category:category})
+    }
+
     return ( 
         <div className="com-footer">
          <div className="container">
@@ -31,10 +39,21 @@ const Footer = () => {
                  <hr/>
              </div>
              <div>
-                 <p>Feedback</p>
+                 <Link to="/contact" onClick={(e) =>handleCategory('contact')}>
                  <p>Adversite with us</p>
-                 <p>Categories</p>
+                 </Link>
+                 <Link to="/aboutus" onClick={(e) =>handleCategory('about')}>
+                 <p>About Us</p>
+                 </Link>
+                 <Link to="/subscribe" onClick={(e) =>handleCategory('subscribe')}>
+                 <p>Subscribe</p>
+                 </Link>
+                 <Link to="/policy" onClick={(e) =>handleCategory('policy')}>
+                 <p>Policy</p>
+                 </Link>
+                 <Link to="/contact" onClick={(e) =>handleCategory('contact')}>
                  <p>Contact us</p>
+                 </Link>
              </div>
 
          </div>

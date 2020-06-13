@@ -4,6 +4,14 @@
   box-shadow: none !important;
 }
 
+.remove{
+color:#fff!important
+}
+
 .space{
     margin-top:2px!important;
+}
+
+.divide{
+  background-color:#fff!important
 }

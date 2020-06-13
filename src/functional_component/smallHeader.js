@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/smallHeader.css";
 import ContactUsIcon  from "@material-ui/icons/HeadsetOutlined";
-import HelpIcon  from "@material-ui/icons/PolicyOutlined";
+import HelpIcon  from "@material-ui/icons/InfoOutlined";
 import SubscriptionsIcon from "@material-ui/icons/SubscriptionsOutlined";
 import SendIcon from "@material-ui/icons/SendOutlined";
 const SmallHeader = (props) => {
@@ -31,7 +31,7 @@ export const OnlyIcon = (props) => {
              </div>  
            </div>
          );
-   case 'policy' :
+   case 'about' :
        return (
            <div className="header-icon-only">
              <div className="row">
@@ -119,7 +119,7 @@ export const HeaderIcon = (props) => {
              </div>
             </div>
           );
-    case 'policy' :
+    case 'about' :
         return (
             <div className="header-icon">
               <div className="row">
@@ -137,9 +137,9 @@ export const HeaderIcon = (props) => {
               <div className="col-12">
                   <div align="center">
                     {props.state ?
-                    <h6 className="colored-text">POLICY</h6>
+                    <h6 className="colored-text">ABOUT</h6>
                     :
-                  <h6>POLICY</h6>
+                  <h6>ABOUT</h6>
                     }
                   </div>
                   </div>

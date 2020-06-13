@@ -30,9 +30,9 @@ const SideNavDesktop = (props) => {
             <Divider />
             {blogContext.blogState.screen <= 640 ?
             <div>
-            <div className="box" onClick={(e) =>handleCategory('policy')}>
-            <Link to={`/policy`}>
-           <NLink category="POLICY"/>
+            <div className="box" onClick={(e) =>handleCategory('about')}>
+            <Link to={`/aboutus`}>
+           <NLink category="ABOUT"/>
            </Link>
            </div>
             <Divider />

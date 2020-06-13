@@ -60,11 +60,9 @@ useEffect(() => {
             {size > 0 ?
             <div>
                <Link to={`/articles/${popI.id}`}>
-            {popI.isVideo ?
-            <Video video={popI.cover} />
-            :
-            <ImageWithIcon picture={popI.cover} text="1" />
-            }
+            
+            <ImageWithIcon isVideo={popI.isVideo} picture={popI.cover} text="1" />
+            
             </Link>
             <div className="title">
             <h6>{popI.title}</h6>
@@ -80,11 +78,9 @@ useEffect(() => {
             {size > 1 ?
             <div>
             <Link to={`/articles/${popII.id}`}>
-            {popII.isVideo ?
-            <Video video={popII.cover} />
-            :
-            <ImageWithIcon picture={popII.cover} text="2" />
-            }
+           
+            <ImageWithIcon isVideo={popII.isVideo} picture={popII.cover} text="2" />
+            
             </Link>
             <div className="title">
               <h6>{popII.title}</h6>
@@ -98,11 +94,9 @@ useEffect(() => {
             {size > 2 ?
            <div>
               <Link to={`/articles/${popIII.id}`}>
-          {popIII.isVideo ?
-            <Video video={popIII.cover} />
-            :
-            <ImageWithIcon picture={popIII.cover} text="3" />
-            }
+          
+            <ImageWithIcon isVideo={popIII.isVideo} picture={popIII.cover} text="3" />
+            
             </Link>
             <div className="title">
               <h6>{popIII.title}</h6>
@@ -116,13 +110,8 @@ useEffect(() => {
           <div className="col-6">
             {size >3 ?
             <div>
-              <Link to={`/articles/${popIV.id}`}>
-            {
-            popIV.isVideo ?
-            <Video video={popIV.cover} />
-            :
-            <ImageWithIcon picture={popIV.cover} text="4" />
-          }
+            <Link to={`/articles/${popIV.id}`}>
+            <ImageWithIcon isVideo={popIV.isVideo} picture={popIV.cover} text="4" />
           </Link>
             <div className="title">
               <h6>{popIV.title}</h6>
@@ -137,12 +126,9 @@ useEffect(() => {
             {size > 4 ?
             <div>
               <Link to={`/articles/${popV.id}`}>
-            {
-            popV.isVideo ?
-            <Video video={popV.cover} />
-            :
-            <ImageWithIcon picture={popV.cover} text="5" />
-          }
+           
+            <ImageWithIcon isVideo={popV.isVideo} picture={popV.cover} text="5" />
+          
           </Link>
             <div className="title">
               <h6>{popV.title}</h6>

@@ -8,12 +8,14 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Avatar from '@material-ui/core/Avatar';
 import CardHeader from '@material-ui/core/CardHeader';
 import IconButton from '@material-ui/core/IconButton';
-import QuoteIcon from "../icons/quote1.png";
-import KarmaIcon from "../icons/karma1.png";
-import MariageIcon from "../icons/jewelry1.png";
-import ReligionIcon from "../icons/pray1.png";
-import SIIcon from "../icons/exercise1.png";
-import HealthIcon from "../icons/doctor1.png"
+import QuoteIcon from "../icons/quote.png";
+import KarmaIcon from "../icons/karma.png";
+import MariageIcon from "../icons/jewelry.png";
+import MusicIcon from "../icons/sing.png";
+import ReligionIcon from "../icons/pray.png";
+import RelationshipIcon from "../icons/sex.png";
+import SIIcon from "../icons/exercise.png";
+import HealthIcon from "../icons/doctor.png"
 import Typography from '@material-ui/core/Typography';
 import CommentIcon from '@material-ui/icons/CommentOutlined';
 import ArrowIcon from '@material-ui/icons/Category';
@@ -24,7 +26,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 const theme = createMuiTheme({
     typography: {
       fontFamily: [
-        '"Cagliostro"',
+        '"Andika"',
       ].join(','),
     },
   });
@@ -32,13 +34,17 @@ const theme = createMuiTheme({
 const useStyles = makeStyles({
   root: {
     maxWidth:700,
+    backgroundColor: '#605196',
+    color: '#fff'
   },
   media: {
-    maxHeight:400,
+    maxHeight:400
   },
   blogColor: {
     color:'#fff',
-    backgroundColor: '#605196',
+  },
+  space: {
+    color:'#fff',
   }
 });
 
@@ -67,6 +73,12 @@ export default function Feed(props) {
       case 'quote':
        setLogo(QuoteIcon)
       break;
+      case 'Relationship':
+       setLogo(RelationshipIcon)
+      break;
+      case 'Music':
+       setLogo(MusicIcon)
+      break;
 
     }
     }
@@ -87,7 +99,11 @@ export default function Feed(props) {
             <ArrowIcon />
           </IconButton>
         }
-        title={props.category}
+        classes={{
+             title: classes.root,
+             subheader: classes.root,
+            }}
+        title={props.category.toLocaleUpperCase()}
         subheader={props.title}
        
       />
@@ -114,10 +130,10 @@ export default function Feed(props) {
       }
       
         <CardContent>
-          <Typography className="space" variant="body2" color="textSecondary" component="p">
+          <Typography className={classes.space} variant="body2" color="textSecondary" component="p">
             {props.des}
           </Typography>
-          <Divider className="space"/>
+          <hr className="divide"/>
           <Typography className="space" gutterBottom variant="h6" component="h5">
             <CommentIcon/> {props.comment} {props.comment > 1 ? 'Comments':'Comment'} 
           </Typography>

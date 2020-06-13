@@ -12,11 +12,11 @@ const [current,setCurrent] = useState(props.category === 'SELF IMPROVEMENT'?'sel
                     <div className="col-10">
                         {blogContext.blogState[current]?
                 <div className="colored">
-                  <h5>{props.category}</h5>
+                  <h6>{props.category}</h6>
                 </div>
                 :
                 <div className="non-colored">
-                  <h5>{props.category}</h5>
+                  <h6>{props.category}</h6>
                 </div>
                     }
                      

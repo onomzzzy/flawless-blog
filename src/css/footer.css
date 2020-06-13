@@ -4,6 +4,9 @@
     background-color: #605196;
     color: #fff;
 }
+.com-footer p{
+cursor: pointer;
+}
 .com-footer hr{
     background-color: #fff!important;
 }

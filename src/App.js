@@ -7,15 +7,17 @@ import Article from "./functional_component/article";
 import PopularPost from "./functional_component/ppost";
 import SideNavDesktop from "./functional_component/sideNav";
 import RecentPost from "./functional_component/rpost";
-import SmallHeader, { HeaderIcon,OnlyIcon } from "./functional_component/smallHeader";
-import { Divider } from "@material-ui/core";
+import  { HeaderIcon,OnlyIcon } from "./functional_component/smallHeader";
 import Search from "./functional_component/search";
 import {Sidebar} from 'primereact/sidebar';
+import logo from "./icons/logo.png";
 import { HamburgerArrow } from "react-animated-burgers";
 import Contact from "./functional_component/contact";
 import Subscribe from "./functional_component/subscribe";
 import PrivatePolicy from "./functional_component/policy";
 import { Link } from "react-router-dom";
+import {AboutUs} from "./functional_component/about";
+import ColoredHeader from "./functional_component/coloredHeader";
 export const BlogContext = React.createContext();
 
 
@@ -27,13 +29,14 @@ function App() {
     task:'0',
     home:false,
     karma:false,
-    policy:false,
+    about:false,
     contact:false,
     subscribe:false,
     religion:false,
     health:false,
     relationship:false,
     quote:false,
+    policy:false,
     music:false,
     marriage:false,
     selfimprovement:false,
@@ -123,7 +126,7 @@ function App() {
      case 'quote': 
      case 'contact':
       case 'subscribe':
-      case 'policy':   
+      case 'about':   
       return location
     default:
       return 'search'   
@@ -148,16 +151,25 @@ function App() {
         <BlogContext.Provider
           value={{ blogState: state, blogDispatch: dispatch }}
         >
+
+         {state.screen >670 ?
+          <div className="sideNavMenu">
+           <SideNavDesktop mobile={false} />
+          </div>
+          :<div>
+            <Sidebar showCloseIcon={false} modal={false} 
+            visible={state.sideBar} baseZIndex={1000000}>
+            <SideNavDesktop mobile={true} />
+            </Sidebar>
+          </div>
+          }
+          
+          {state.screen > 670 ?
            <div className="header">
              <div className="header-controller">
            <div className="container">
              <div className="row">
-             <div className="col-2 col-sm-1">
-               <div className="logo">
-               <Logo style={{ fontSize: 50,color:'#605196',position:'relative',left:10}} />
-               </div>
-            
-             </div>
+             
                <div className="col-6 col-xl-7">
                  <Search />
                </div>
@@ -172,8 +184,8 @@ function App() {
                     </Link> 
                     </div>
                     <div className="col">
-                    <Link to={`/policy`} onClick={e=>dispatch({type:'SELECT_CATEGORY',category:'policy'})}> 
-                    <HeaderIcon icon="policy" state={state.policy}/>
+                    <Link to={`/aboutus`} onClick={e=>dispatch({type:'SELECT_CATEGORY',category:'about'})}> 
+                    <HeaderIcon icon="about" state={state.about}/>
                     </Link>
                     </div>
                     <div className="col">
@@ -186,7 +198,7 @@ function App() {
 
                  :
                  <div>
-                   {state.screen > 640?
+                   {state.screen > 670?
 
                     <div className="right-icon">
                   <div className="row">
@@ -196,8 +208,8 @@ function App() {
                     </Link>
                     </div>
                     <div className="col">
-                    <Link to={`/policy`} onClick={e=>dispatch({type:'SELECT_CATEGORY',category:'policy'})}> 
-                    <HeaderIcon icon="policy" state={state.policy}/>
+                    <Link to={`/aboutus`} onClick={e=>dispatch({type:'SELECT_CATEGORY',category:'policy'})}> 
+                    <HeaderIcon icon="about" state={state.about}/>
                     </Link>
                     </div>
                   </div> 
@@ -243,23 +255,54 @@ function App() {
             </div>
           
            </div>
+           :
+
+           <div className="header-Mob">
+             <div className="header-controller">
+           <div className="container-fluid">
+             <div className="row">
+             <div className="col-3">
+               <div className="logo">
+               <img src={logo} />
+               </div>
+            
+             </div>
+               <div className="col-6">
+               <div className="right-icon">
+                 <Search />
+                 </div>
+               </div>
+
+               <div className="col-3">
+                 
+                 <div className="right-icon">
+                    <div className="hamburg">
+                    <HamburgerArrow
+                      className="hamburger"
+                      barColor="#605196"
+                      isActive={state.sideBar}
+                      toggleButton={(e) => {
+                        dispatch({ type: "TOGGLE_SIDE_BAR" });
+                      }}
+                    />
+                  </div>
+                   </div>
+               </div>
+
+             </div>
+            </div> 
+            </div>
           
-          {state.screen >640 ?
-          <div className="sideNavMenu">
-           <SideNavDesktop mobile={false} />
-          </div>
-          :<div>
-            <Sidebar showCloseIcon={false} modal={false} 
-            visible={state.sideBar} baseZIndex={1000000}>
-            <SideNavDesktop mobile={true} />
-            </Sidebar>
-          </div>
-          }
+           </div>
+           }
+          
            
            {state.screen > 1030 ?
           <div id="main">
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <Route path="/aboutus" component={AboutUs} />
             <Route path="/home/:id" component={Home} />
             <Route exact path="/articles/:id" component={Article} />
             <Route  path="/contact" component={Contact} />
@@ -270,10 +313,12 @@ function App() {
           </div>
           :
           <div>
-          {state.screen > 640 ?
+          {state.screen > 670 ?
           <div id="mainSm">
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <Route  path="/aboutus" component={AboutUs} />
             <Route path="/home/:id" component={Home} />
             <Route exact path="/articles/:id" component={Article} />
             <Route  path="/contact" component={Contact} />
@@ -286,6 +331,8 @@ function App() {
           <div id="mainM">
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <Route  path="/aboutus" component={AboutUs} />
             <Route path="/home/:id" component={Home} />
             <Route exact path="/articles/:id" component={Article} />
             <Route  path="/contact" component={Contact} />
@@ -299,14 +346,10 @@ function App() {
           }
           
           {state.screen > 1030 ?
-          <div className="activity-list">  
-          <SmallHeader title="Popular Posts"/>
-          <Divider/>
-          <Divider/>
+          <div className="activity-list"> 
+          <ColoredHeader title="Popular Posts"/> 
           <PopularPost/>
-          <SmallHeader title="Recent Posts"/>
-          <Divider/>
-          <Divider/>
+          <ColoredHeader title="Recent Posts"/>
           <RecentPost/>   
           </div>
           :
