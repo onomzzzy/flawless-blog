@@ -10,7 +10,6 @@ import RecentPost from "./functional_component/rpost";
 import SmallHeader, { HeaderIcon,OnlyIcon } from "./functional_component/smallHeader";
 import { Divider } from "@material-ui/core";
 import Search from "./functional_component/search";
-import Logo from "@material-ui/icons/Polymer";
 import {Sidebar} from 'primereact/sidebar';
 import { HamburgerArrow } from "react-animated-burgers";
 import Contact from "./functional_component/contact";
