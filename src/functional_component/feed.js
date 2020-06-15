@@ -18,7 +18,7 @@ import SIIcon from "../icons/exercise.png";
 import HealthIcon from "../icons/doctor.png"
 import Typography from '@material-ui/core/Typography';
 import CommentIcon from '@material-ui/icons/CommentOutlined';
-import ArrowIcon from '@material-ui/icons/Category';
+import ArrowIcon from '@material-ui/icons/VisibilityOutlined';
 import { Divider } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
@@ -45,6 +45,9 @@ const useStyles = makeStyles({
   },
   space: {
     color:'#fff',
+  },
+  view:{
+    position:'relative',top:'3px',left:'2px'
   }
 });
 
@@ -97,6 +100,7 @@ export default function Feed(props) {
         action={
           <IconButton className="remove" aria-label="settings">
             <ArrowIcon />
+        <h6 className={classes.view}>{props.view}</h6>
           </IconButton>
         }
         classes={{

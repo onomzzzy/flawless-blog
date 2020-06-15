@@ -1,7 +1,10 @@
 import "../css/subscriber.css";
-import React from "react";
+import React,{useState,useContext,useRef} from "react";
+import axios from "axios";
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import {Messages} from 'primereact/messages';
+import {BlogContext} from "../App";
 
 // We can inject some CSS into the DOM.
 
@@ -47,11 +50,72 @@ const NewsLetter = () => {
 };
 
 export const NewsLetterM = () => {
+  const blogContext = useContext(BlogContext);
+  let messages = useRef(null);
+  const uri = `${blogContext.blogState.api}/subscribers`;
   const classes = useStyles();
+  const[fullName,setFullName] = useState('');
+  const[email,setEmail] = useState('');
+
+  const showError = () => {
+    messages.current.show({severity: 'error', summary: 'Error :', 
+    detail: 'Validation Failed',sticky: true});
+};
+
+const showInfo = () => {
+  messages.current.show({severity: 'info', summary: 'Successfull :',
+   detail: 'You have Subscribed successfully',sticky: true});
+};
+
+const showMultiple = () => {
+  messages.current.show([
+      {severity: 'error', summary: 'Validation Error :', detail: 'Validation Failed',sticky: true},
+      {severity: 'info', summary: 'Form Error :', detail: 'Form not filled correctly',sticky: true},
+  ]);
+}
+
+const showWarn = () => {
+  messages.current.show({severity: 'warn', summary: 'Error', 
+  detail: 'You have already subscribed',sticky: true});
+};
+
+  async function addSubscriber() {
+
+    let validMail = email.match( /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+    if(fullName.length < 3 || validMail === null){
+      showMultiple();
+    }
+    else{
+
+    const suby ={
+      id:'',
+      blogName:'flawlessheart',
+      fullName: fullName,
+      email: email
+    }
+    await axios
+   .put(uri,suby)
+   .then((res) => {
+     let subs =  res.data;
+     if(subs){
+      showInfo()
+     }
+     else{
+      showWarn()
+     }
+   })
+
+   .catch((err) => {
+    showError()
+     console.log(`error ocurr ${err}`);
+   });
+  }
+
+ }
   return (
     <div className="newsletterM">
      <div className="card">
-
+     <Messages ref={messages} />
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -62,15 +126,15 @@ export const NewsLetterM = () => {
           </div>
 
           <div className="col-12">
-            <input placeholder="Full Name" />
+            <input value={fullName} onChange={e=> setFullName(e.target.value)} placeholder="Full Name" />
           </div>
 
           <div className="col-12">
-            <input placeholder="Email" />
+            <input value={email} onChange={e=> setEmail(e.target.value)} placeholder="Email" />
           </div>
 
           <div className="col-12">
-          <Button className={classes.root} variant="contained" color="primary">
+          <Button className={classes.root} onClick={e => addSubscriber()} variant="contained" color="primary">
            Subscribe
           </Button>
           </div>

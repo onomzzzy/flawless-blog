@@ -78,7 +78,7 @@ const RecentPost = (props) => {
           <h6>{resI.title}</h6>
           </div>
           <div className="date">
-            <JustDate month={`${resI.date[1]} ${resI.date[2]}`} year={resI.date[3]} />
+            <JustDate desktop={false} month={`${resI.date[1]} ${resI.date[2]}`} year={resI.date[3]} />
           </div>
         </div>
         <div className="col-12">
@@ -103,7 +103,7 @@ const RecentPost = (props) => {
           <h6>{resII.title}</h6>
           </div>
           <div className="date">
-          <JustDate month={`${resII.date[1]} ${resII.date[2]}`} year={resII.date[3]} />
+          <JustDate desktop={false} month={`${resII.date[1]} ${resII.date[2]}`} year={resII.date[3]} />
           </div>
         </div>
         <div className="col-12">
@@ -135,7 +135,7 @@ const RecentPost = (props) => {
                 <h6>{resI.title}</h6>
                 </div>
                 <div className="date">
-                  <JustDate month={`${resI.date[1]} ${resI.date[2]}`} year={resI.date[3]} />
+                  <JustDate desktop={true} month={`${resI.date[1]} ${resI.date[2]}`} year={resI.date[3]} />
                 </div>
               </div>
               <div className="col-12">
@@ -160,7 +160,7 @@ const RecentPost = (props) => {
                 <h6>{resII.title}</h6>
                 </div>
                 <div className="date">
-                <JustDate month={`${resII.date[1]} ${resII.date[2]}`} year={resII.date[3]} />
+                <JustDate desktop={true} month={`${resII.date[1]} ${resII.date[2]}`} year={resII.date[3]} />
                 </div>
               </div>
               <div className="col-12">

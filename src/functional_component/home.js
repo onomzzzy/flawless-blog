@@ -33,7 +33,9 @@ const Home = ({match}) => {
   const blogContext = useContext(BlogContext);
   const[isEmpty,setIsEmpty] = useState(false);
   const uriComment = `${blogContext.blogState.api}/comments`;
+  const uriView = `${blogContext.blogState.api}/views`;
   const[comments,setComments] = useState([]);
+  const[views,setViews] = useState([]);
   const[page,setPage] = useState('home');
    const[blogs,setBlogs] = useState([]);
    const classes = useStyles();
@@ -51,6 +53,38 @@ const Home = ({match}) => {
    });
 
  }
+
+ async function getViewsfromServer() {
+  await axios
+ .get(`${uriView}`)
+ .then((res) => {
+   let vw =  res.data;
+    setViews(vw);
+ })
+
+ .catch((err) => {
+   console.log(`error ocurr ${err}`);
+ });
+
+}
+
+async function addView(id) {
+  const newView ={
+    id:'',
+ blogId:id
+  }
+  await axios
+ .put(`${uriView}`,newView)
+ .then((res) => {
+   let vw =  res.data;
+    console.log(vw)
+ })
+
+ .catch((err) => {
+   console.log(`error ocurr ${err}`);
+ });
+
+}
 
    async function uriSelection(){
      switch(match.params.id){
@@ -118,6 +152,16 @@ const Home = ({match}) => {
    return result;
   }
 
+  function getViewCount(id){
+    let result = 0;
+    for (let view of views) {
+      if(view.blogId === id){
+        result +=1;
+      }
+   }
+    return result;
+   }
+
   
 
    useEffect(() => {
@@ -126,6 +170,7 @@ const Home = ({match}) => {
         //const response 
         //select uri
         getCommentfromServer();
+        getViewsfromServer();
         uriSelection();
        
         // ...
@@ -133,13 +178,15 @@ const Home = ({match}) => {
       getBlogfromServer();
     },[match.params.id]);
 
+
+
     const allBlogs = blogs.map((blog) =>
-    <Link key={blog.id} to={`/articles/${blog.id}`}>
+    <Link key={blog.id} onClick={e => addView(blog.id)} to={`/articles/${blog.id}`}>
       <li >
      <div className="feeds">
      
       <Feed cover={blog.postCover} des={blog.des} category={blog.category} 
-      title={blog.title} comment={getCommentCount(blog.id)} isVideo={blog.video}/> 
+      title={blog.title} view={getViewCount(blog.id)} comment={getCommentCount(blog.id)} isVideo={blog.video}/> 
       
       </div> 
       </li>

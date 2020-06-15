@@ -18,11 +18,19 @@ const Author = (props) => {
 export const JustDate = (props) => {
   return (
     <div className="author">
+      {props.desktop ?
       <span>
-        <span className="name">{props.month}</span>{" "}
+        <span className="desk">{props.month}</span>{" "}
         <span className="divider">,</span>{" "}
-        <span className="date">{props.year}</span>
+        <span className="desk">{props.year}</span>  
       </span>
+      :
+      <span>
+      <span className="name">{props.month}</span>{" "}
+      <span className="divider">,</span>{" "}
+      <span className="date">{props.year}</span>  
+    </span>
+      }
     </div>
   );
 };
